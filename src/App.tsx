@@ -14,7 +14,7 @@ const App = () => {
       <GridItem area={"nav"} bg={"blue"}>
         navBar
       </GridItem>
-      <GridItem area={"main"} bg={"red"}>
+      <GridItem area={"main"}>
         <GameGrid/>
       </GridItem>
       {showSideBar &&(

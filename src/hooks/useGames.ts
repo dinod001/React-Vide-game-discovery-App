@@ -3,9 +3,10 @@ import { CanceledError } from "axios"
 import { useEffect, useState } from "react"
 
 //game interface for array
-interface Game{
+export interface Game{
     id:number,
-    name:String
+    name:String,
+    background_image:string
 }
 
 //fetch game response interface for fetching data
