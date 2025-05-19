@@ -2,11 +2,19 @@ import apiClient from "@/services/api-client"
 import { CanceledError } from "axios"
 import { useEffect, useState } from "react"
 
+
+//platform interface for icons
+export interface Platform{
+    id:number,
+    name:string,
+    slug:string
+}
 //game interface for array
 export interface Game{
     id:number,
     name:String,
-    background_image:string
+    background_image:string,
+    platforms:{platform:Platform}[]
 }
 
 //fetch game response interface for fetching data
