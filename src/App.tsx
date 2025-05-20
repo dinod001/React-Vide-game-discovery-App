@@ -4,6 +4,7 @@ import GenreList from './components/GenreList'
 import NavBar from './components/NavBar'
 import { useEffect, useState } from 'react'
 import type { Genre } from './hooks/useGenre'
+import PlatFromSelector from './components/PlatFromSelector'
 
 const App = () => {
 
@@ -23,7 +24,8 @@ const App = () => {
         <NavBar/>
       </GridItem>
 
-      <GridItem area={"main"}>
+      <GridItem area={"main"} paddingY={5}>
+        <PlatFromSelector/>
         <GameGrid selectedGenre={selectedGenre} />
       </GridItem>
 
