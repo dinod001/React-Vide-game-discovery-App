@@ -1,26 +1,45 @@
-import { HStack, Image, Text } from "@chakra-ui/react";
-import logo from "../assets/react.svg";
+import { HStack, Image, Box, Flex, Heading } from "@chakra-ui/react";
+import logo from "../assets/logo.png";
+import logo2 from "../assets/logo2.png";
 import SearchInput from "./SearchInput";
 
 interface NavBarProps {
-  onSearch: (SearchText: string) => void;
+  onSearch: (searchText: string) => void;
 }
 
 const NavBar = ({ onSearch }: NavBarProps) => {
   return (
-    <HStack padding={"20px"} justifyContent={"space-between"}>
-      <Image
-        src={logo}
-        padding={5}
-        height={{ base: "40px", md: "50px", lg: "90px" }}
-      />
-      {
-        <Text fontSize={25} fontStyle={"bold"}>
-          React Game Discovery APP
-        </Text>
-      }
-      <SearchInput onSearch={(searchText) => onSearch(searchText)} />
-    </HStack>
+    <Flex
+      as="nav"
+      direction="row"
+      align="center"
+      justify="space-between"
+      px={{ base: 4, md: 8 }}
+      py={4}
+      wrap="wrap"
+      width="100%"
+    >
+      {/* Logo container */}
+      <Box>
+        <Image
+          src={logo2}
+          height={{ base: "50px", sm: "50px", md: "100px" }}
+          objectFit="contain"
+        />
+      </Box>
+      <Box>
+        <Image
+          src={logo}
+          height={{ base: "50px", sm: "50px", md: "100px" }}
+          objectFit="contain"
+        />
+      </Box>
+
+      {/* Search bar */}
+      <Box flex={1} ml={{ base: 0, md: 4 }}>
+        <SearchInput onSearch={onSearch} />
+      </Box>
+    </Flex>
   );
 };
 

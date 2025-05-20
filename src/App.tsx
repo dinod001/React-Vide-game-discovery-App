@@ -34,7 +34,7 @@ const App = () => {
         />
       </GridItem>
 
-      <GridItem area={"main"} paddingY={5}>
+      <GridItem area={"main"} padding={5}>
         <GameHeading gameQuery={gameQuery} />
         <PlatFromSelector
           setSelectedPaltform={(platform) =>
