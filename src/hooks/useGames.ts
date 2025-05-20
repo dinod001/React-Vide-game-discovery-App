@@ -3,6 +3,7 @@ import { CanceledError } from "axios"
 import { useEffect, useState } from "react"
 import useData from "./useData"
 import type { Genre } from "./useGenre"
+import type { GameQuery } from "@/App"
 
 
 //platform interface for icons
@@ -20,6 +21,11 @@ export interface Game{
     metacritic:number
 }
 
-const useGames=(selectedGenre:Genre | null)=>useData<Game>("/games",{params:{genres:selectedGenre?.id}},[selectedGenre?.id])
+const useGames=(gameQuery: GameQuery)=>
+    useData<Game>("/games",
+        {params:
+            {genres:gameQuery.genre?.id,
+            platforms:gameQuery.platform?.id}
+        },[gameQuery])
 
 export default useGames
