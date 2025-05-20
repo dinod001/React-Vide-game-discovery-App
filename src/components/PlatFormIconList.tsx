@@ -1,17 +1,17 @@
 import type { Platform } from "@/hooks/useGames";
-import { HStack, Icon, Text } from "@chakra-ui/react";
+import { HStack } from "@chakra-ui/react";
+import type { IconType } from "react-icons";
+import { BsGlobe } from "react-icons/bs";
 import {
-  FaWindows,
-  FaPlaystation,
-  FaXbox,
+  FaAndroid,
   FaApple,
   FaLinux,
-  FaAndroid,
+  FaPlaystation,
+  FaWindows,
+  FaXbox,
 } from "react-icons/fa";
 import { MdPhoneIphone } from "react-icons/md";
 import { SiNintendo } from "react-icons/si";
-import { BsGlobe } from "react-icons/bs";
-import type { IconType } from "react-icons";
 
 interface PlatFormIconListProps {
   platforms: Platform[];
@@ -36,13 +36,14 @@ const PlatFormIconList = ({ platforms }: PlatFormIconListProps) => {
   return (
     //set iocns
     <HStack gap={2}>
-      {platforms.map((platform) => (
-        <>
-          {Object.entries(iconsMap).map(([key, Icon]) =>
-            platform.slug === key ? <Icon key={key} /> : null
-          )}
-        </>
-      ))}
+      {platforms &&
+        platforms.map((platform) => (
+          <>
+            {Object.entries(iconsMap).map(([key, Icon]) =>
+              platform.slug === key ? <Icon key={key} /> : null
+            )}
+          </>
+        ))}
     </HStack>
   );
 };

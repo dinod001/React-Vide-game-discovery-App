@@ -1,4 +1,4 @@
-import { HStack, Image, Box, Flex, Heading } from "@chakra-ui/react";
+import { Box, Flex, Image } from "@chakra-ui/react";
 import logo from "../assets/logo.png";
 import logo2 from "../assets/logo2.png";
 import SearchInput from "./SearchInput";

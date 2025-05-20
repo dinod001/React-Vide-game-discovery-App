@@ -42,6 +42,8 @@ const useData = <T>(
     deps ? [...deps] : []
   );
 
+  console.log(data);
+
   return { data, error, loading };
 };
 
