@@ -1,10 +1,10 @@
 import { HStack, Image, Text } from '@chakra-ui/react'
-import image from '../assets/react.svg'
+import logo from '../assets/react.svg'
 
 const NavBar = () => {
   return (
     <HStack>
-      <Image src={image} padding={5}/>
+      <Image src={logo} padding={5} height={{base:"40px",md:"50px",lg:"60px"}}/>
       <Text fontSize={25} fontStyle={"bold"}>React Game Discovery APP</Text>
     </HStack>
   )

@@ -1,4 +1,4 @@
-import { Grid, GridItem, useBreakpointValue } from '@chakra-ui/react'
+import { Box, Grid, GridItem, Sticky, useBreakpointValue } from '@chakra-ui/react'
 import GameGrid from './components/GameGrid'
 import GenreList from './components/GenreList'
 import NavBar from './components/NavBar'
@@ -19,7 +19,7 @@ const App = () => {
         lg:`"nav nav" "aside main" "footer footer"`
       }}
     >
-      <GridItem area={"nav"}>
+      <GridItem area={"nav"} position="sticky" top={0} zIndex={1} bg={'black'} >
         <NavBar/>
       </GridItem>
 
@@ -28,12 +28,26 @@ const App = () => {
       </GridItem>
 
       {showSideBar &&(
-        <GridItem area={"aside"} paddingX={"5"}>
+        <GridItem area={"aside"} paddingX={"5"} 
+          position="sticky"
+          top={0} 
+          height="85vh"
+          overflowY="auto"
+          css={{
+              /*hide scroll bar*/
+              "&::webkit-scrollbar":{
+                display:'none',
+              },
+              msOverflowStyle:'none',
+              scrollbarWidth:'none'
+          }}>
           <GenreList onSelectGenre={(genre)=>setSelectedGenre(genre)}/>
-      </GridItem>)}
+        </GridItem>)}
 
-      <GridItem area={"footer"} bg={"yellow"}>
-        footer
+      <GridItem area={"footer"} bg={"yellow"} w="full">
+        <Box w="full" textAlign="center" p={4}>
+          footer
+        </Box>
       </GridItem>
     
     </Grid>
