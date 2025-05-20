@@ -41,7 +41,9 @@ const App = () => {
               msOverflowStyle:'none',
               scrollbarWidth:'none'
           }}>
-          <GenreList onSelectGenre={(genre)=>setSelectedGenre(genre)}/>
+          <GenreList 
+          onSelectGenre={(genre)=>setSelectedGenre(genre)}
+          selectedGenre={selectedGenre}/>
         </GridItem>)}
 
       <GridItem area={"footer"} bg={"yellow"} w="full">

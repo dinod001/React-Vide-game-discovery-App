@@ -3,10 +3,11 @@ import getOptimizedImageUrl from '@/services/image-url'
 import { Button, HStack, Image, List, ListItem, Spinner, Text } from '@chakra-ui/react'
 
 interface GenreListProps{
-  onSelectGenre:(genre:Genre)=>void;
+  onSelectGenre:(genre:Genre)=>void,
+  selectedGenre:Genre|null
 }
 
-const GenreList = ({onSelectGenre}:GenreListProps) => {
+const GenreList = ({onSelectGenre,selectedGenre}:GenreListProps) => {
   const {data,loading,error}=useGenre()
 
   if (error) return null;
@@ -22,9 +23,10 @@ const GenreList = ({onSelectGenre}:GenreListProps) => {
               boxSize={"32px"}
               borderRadius={8}
               src={getOptimizedImageUrl(genre.image_background)}/>
-
+              
               <Button 
-              fontSize={"lg"} 
+              fontWeight={selectedGenre?.id===genre.id?"bold":"normal"}
+              fontSize={selectedGenre?.id===genre.id?"lg":"md"} 
               variant={'ghost'}
               onClick={()=>onSelectGenre(genre)}
               >{genre.name}</Button>
