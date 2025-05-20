@@ -8,10 +8,10 @@ interface GameHeadingProps {
 const GameHeading = ({ gameQuery }: GameHeadingProps) => {
   const heading = `${gameQuery.platform?.name || ""} ${
     gameQuery.genre?.name || ""
-  } games`;
+  } Games`;
 
   return (
-    <Heading as={"h1"} padding={0} marginY={5} fontSize={"4xl"}>
+    <Heading as={"h1"} fontWeight={"bold"} marginY={3} fontSize={"4xl"}>
       {heading}
     </Heading>
   );
