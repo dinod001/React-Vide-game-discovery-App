@@ -16,7 +16,7 @@ const PlatFromSelector = ({setSelectedPaltform,selectedPaltform}:PlatFromSelecto
 
     return (
         <Menu.Root>
-        <Menu.Trigger asChild width={"20%"}>
+        <Menu.Trigger asChild width={{base:"100%",md:"20%"}}>
             <Button variant="outline" size="sm">
                 {selectedPaltform ? selectedPaltform.name:"Platform Selector"}
                 <IoIosArrowDropdown fontWeight={"bold"} fontSize={"20px"} />

@@ -24,7 +24,7 @@ const GameGrid = ({gameQuery}:GameGridProps) => {
       {loading && skeletons.map((skeleton)=> <GameCardSkeletion key={skeleton}/>)}
 
       {/* Display the actual games */}
-        {data.map((game)=>(
+        {data && data.length>0 && data.map((game)=>(
             <GameCard key={game.id} game={game}/>
         ))}
     </SimpleGrid>

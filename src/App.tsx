@@ -1,15 +1,16 @@
-import { Box, Grid, GridItem, Sticky, useBreakpointValue } from '@chakra-ui/react'
+import { Box, Grid, GridItem, useBreakpointValue } from '@chakra-ui/react'
+import { useState } from 'react'
 import GameGrid from './components/GameGrid'
 import GenreList from './components/GenreList'
 import NavBar from './components/NavBar'
-import {useState } from 'react'
-import type { Genre } from './hooks/useGenre'
 import PlatFromSelector from './components/PlatFromSelector'
 import type { Platform } from './hooks/useGames'
+import type { Genre } from './hooks/useGenre'
 
 export interface GameQuery{
-  genre:Genre|null,
-  platform:Platform|null
+  genre:Genre|null;
+  platform:Platform|null;
+  searchText:string;
 }
 
 const App = () => {
@@ -25,8 +26,13 @@ const App = () => {
         lg:`"nav nav" "aside main" "footer footer"`
       }}
     >
-      <GridItem area={"nav"} position="sticky" top={0} zIndex={1} bg={'black'} >
-        <NavBar/>
+      <GridItem 
+      area={"nav"}
+      position="sticky"
+      top={0}
+      zIndex={1}
+      bg={'black'} >
+          <NavBar onSearch={(searchText:string)=>setGameQuery({...gameQuery,searchText})}/>
       </GridItem>
 
       <GridItem area={"main"} paddingY={5}>
