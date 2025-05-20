@@ -5,7 +5,7 @@ const NavBar = () => {
   return (
     <HStack>
       <Image src={image} padding={5}/>
-      <Text fontSize={25} fontStyle={"bold"}>React Video Discovery APP</Text>
+      <Text fontSize={25} fontStyle={"bold"}>React Game Discovery APP</Text>
     </HStack>
   )
 }
