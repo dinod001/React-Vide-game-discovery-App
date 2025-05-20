@@ -6,6 +6,7 @@ import NavBar from './components/NavBar'
 import PlatFromSelector from './components/PlatFromSelector'
 import type { Platform } from './hooks/useGames'
 import type { Genre } from './hooks/useGenre'
+import GameHeading from './components/GameHeading'
 
 export interface GameQuery{
   genre:Genre|null;
@@ -22,8 +23,8 @@ const App = () => {
   return (
     <Grid
       templateAreas={{
-        base:`"nav" "main" "footer"`,
-        lg:`"nav nav" "aside main" "footer footer"`
+        base:`"nav" "main"`,
+        lg:`"nav nav" "aside main"`
       }}
     >
       <GridItem 
@@ -36,6 +37,7 @@ const App = () => {
       </GridItem>
 
       <GridItem area={"main"} paddingY={5}>
+        <GameHeading gameQuery={gameQuery}/>
         <PlatFromSelector setSelectedPaltform={(platform)=>setGameQuery({...gameQuery,platform})} selectedPaltform={gameQuery.platform}/>
         <GameGrid gameQuery={gameQuery}/>
       </GridItem>
@@ -58,13 +60,6 @@ const App = () => {
           onSelectGenre={(genre)=>setGameQuery({...gameQuery,genre})}
           selectedGenre={gameQuery.genre}/>
         </GridItem>)}
-
-      <GridItem area={"footer"} bg={"yellow"} w="full">
-        <Box w="full" textAlign="center" p={4}>
-          footer
-        </Box>
-      </GridItem>
-    
     </Grid>
   )
 }
