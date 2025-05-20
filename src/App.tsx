@@ -1,5 +1,4 @@
 import { Grid, GridItem, useBreakpointValue } from '@chakra-ui/react'
-import React from 'react'
 import GameGrid from './components/GameGrid'
 import GenreList from './components/GenreList'
 
